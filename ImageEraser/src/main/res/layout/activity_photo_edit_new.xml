@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/linearLayout"
+    android:id="@+id/constraintLayout"
     xmlns:tools="http://schemas.android.com/tools"
     tools:background="#221B3C">
 
@@ -12,88 +12,90 @@
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
-        tools:background="@drawable/edit_back"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:paddingHorizontal="20dp"
         android:weightSum="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/edit_back">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingVertical="10dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingVertical="10dp">
 
             <Button
                 android:id="@+id/undo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/undo_selector"/>
+                android:background="@drawable/undo_selector" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingVertical="10dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingVertical="10dp">
 
             <Button
+                android:id="@+id/redo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:id="@+id/redo"
-                android:background="@drawable/redo_selector"/>
+                android:background="@drawable/redo_selector" />
         </LinearLayout>
+
         <View
             android:layout_width="10dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <LinearLayout
-            android:layout_width="0dp"
             android:id="@+id/zoom"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingVertical="10dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingVertical="10dp">
 
             <Button
                 android:id="@+id/zoom_button"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/magnifier_selector"/>
+                android:background="@drawable/magnifier_selector" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/auto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/auto"
             android:layout_weight="1"
-            android:paddingVertical="10dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingVertical="10dp">
 
             <Button
+                android:id="@+id/auto_clear_button"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:id="@+id/auto_clear_button"
-                android:background="@drawable/magic_selector"/>
+                android:background="@drawable/magic_selector" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingVertical="10dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingVertical="10dp">
 
             <Button
                 android:id="@+id/manual_clear_button"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/pencil_selector"/>
+                android:background="@drawable/pencil_selector" />
         </LinearLayout>
     </LinearLayout>
 
@@ -101,15 +103,15 @@
         android:id="@+id/gestureView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        app:layout_constraintBottom_toTopOf="@+id/manual_clear_settings_layout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <!-- GestureFrameLayout can contain only one child -->
 
         <FrameLayout
             android:id="@+id/drawViewLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
+            android:layout_height="match_parent">
 
             <com.appyhigh.imageeraser.DrawView
                 android:id="@+id/drawView"
@@ -135,18 +137,20 @@
     </com.alexvasilkov.gestures.views.GestureFrameLayout>
 
     <LinearLayout
+        android:id="@+id/manual_clear_settings_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/manual_clear_settings_layout">
+        app:layout_constraintBottom_toTopOf="@+id/done">
+
         <SeekBar
             android:id="@+id/strokeBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="25dp"
-            tools:progressTint="#F763B3"
             android:max="30"
-            tools:thumbTint="#F763B3"
-            android:progress="15" />
+            android:progress="15"
+            tools:progressTint="#F763B3"
+            tools:thumbTint="#F763B3" />
     </LinearLayout>
 
     <Button
@@ -154,14 +158,14 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="25dp"
-        android:textColor="#fff"
-        android:textSize="16sp"
         android:layout_marginBottom="30dp"
-        tools:background="@drawable/main_button"
         android:text="Done"
         android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:background="@drawable/main_button" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

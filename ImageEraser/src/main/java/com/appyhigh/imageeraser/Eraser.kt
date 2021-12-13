@@ -20,6 +20,7 @@ object Eraser {
     const val ERASER_EXTRA_TOOLBAR_BACKGROUND_COLOR = "ERASER_EXTRA_TOOLBAR_BACKGROUND_COLOR"
     const val ERASER_EXTRA_SEEKBAR_COLOR = "ERASER_EXTRA_SEEKBAR_COLOR"
     const val ERASER_EXTRA_BUTTON_COLOR = "ERASER_EXTRA_BUTTON_COLOR"
+    const val ERASER_EXTRA_IMAGE_RATIO = "ERASER_EXTRA_IMAGE_RATIO"
 
 
     fun activity(): ActivityBuilder {
@@ -63,6 +64,7 @@ object Eraser {
         private var toolbarBgColor: Int = R.color.toolbar_background_color
         private var seekBarColor: Int = R.color.button_color
         private var buttonColor: Int = R.color.button_color
+        private var ratio: String = ""
 
         @Nullable
         private var source // The image to crop source Android uri
@@ -83,6 +85,9 @@ object Eraser {
             intent.putExtra(ERASER_EXTRA_BACKGROUND_COLOR,backgroundColor)
             intent.putExtra(ERASER_EXTRA_BUTTON_COLOR,buttonColor)
             intent.putExtra(ERASER_EXTRA_SEEKBAR_COLOR,seekBarColor)
+            if (ratio.isNotEmpty()){
+                intent.putExtra(ERASER_EXTRA_IMAGE_RATIO,ratio)
+            }
             return intent
         }
 
@@ -123,6 +128,16 @@ object Eraser {
 
         fun setSeekbarColor(@ColorRes color: Int) : ActivityBuilder {
             this.seekBarColor = color
+            return this
+        }
+
+        /**
+         * Define ratio of image to be return by library
+         *
+         * @param ratio [String] Image ratio in string format e.g. "1:1"
+         */
+        fun setImageRatio(ratio: String): ActivityBuilder {
+            this.ratio = ratio
             return this
         }
 

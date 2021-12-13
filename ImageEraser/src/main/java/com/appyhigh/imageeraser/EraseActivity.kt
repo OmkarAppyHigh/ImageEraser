@@ -15,9 +15,12 @@ import android.view.View
 import android.widget.*
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.alexvasilkov.gestures.views.GestureFrameLayout
 import com.alexvasilkov.gestures.views.interfaces.GestureView
 import com.appyhigh.imageeraser.SaveDrawingTask.saveDrawingTask
 import top.defaults.checkerboarddrawable.CheckerboardDrawable
@@ -71,7 +74,7 @@ class EraseActivity : AppCompatActivity() {
     }
 
     private fun setLayout() {
-        val background = findViewById<LinearLayout>(R.id.linearLayout)
+        val background = findViewById<ConstraintLayout>(R.id.constraintLayout)
         val bgColor = intent.getIntExtra(Eraser.ERASER_EXTRA_BACKGROUND_COLOR,R.color.erase_background_color)
         background.setBackgroundColor(ContextCompat.getColor(this,bgColor))
 
@@ -95,6 +98,12 @@ class EraseActivity : AppCompatActivity() {
         }
         val button = findViewById<Button>(R.id.done)
         button.background = btnBg
+
+        if (intent.hasExtra(Eraser.ERASER_EXTRA_IMAGE_RATIO)){
+            val gestureView = findViewById<GestureFrameLayout>(R.id.gestureView)
+            val ratio = intent.getStringExtra(Eraser.ERASER_EXTRA_IMAGE_RATIO)
+            (gestureView.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = ratio
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

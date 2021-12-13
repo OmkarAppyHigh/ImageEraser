@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
                 Eraser
                     .activity()
                     .src(uri)
+                    .setImageRatio("1:1")
                     .shouldReturnResultPath(true)
                     .start(this)
             }
