@@ -4,6 +4,8 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -32,10 +34,8 @@ class EraseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_photo_edit_new)
 
-//        Toolbar toolbar = findViewById(R.id.photo_edit_toolbar);
-//        toolbar.setBackgroundColor(Color.BLACK);
-//        toolbar.setTitleTextColor(Color.WHITE);
-//        setSupportActionBar(toolbar);
+        setLayout()
+
         val drawViewLayout: FrameLayout = findViewById(R.id.drawViewLayout)
         val sdk = Build.VERSION.SDK_INT
         if (sdk < Build.VERSION_CODES.JELLY_BEAN) {
@@ -50,7 +50,6 @@ class EraseActivity : AppCompatActivity() {
         drawView = findViewById(R.id.drawView)
         drawView?.isDrawingCacheEnabled = true
         drawView?.setLayerType(View.LAYER_TYPE_HARDWARE, null)
-        //drawView.setDrawingCacheEnabled(true);
         drawView?.setStrokeWidth(strokeBar.progress)
         strokeBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {}
@@ -71,6 +70,33 @@ class EraseActivity : AppCompatActivity() {
         start()
     }
 
+    private fun setLayout() {
+        val background = findViewById<LinearLayout>(R.id.linearLayout)
+        val bgColor = intent.getIntExtra(Eraser.ERASER_EXTRA_BACKGROUND_COLOR,R.color.erase_background_color)
+        background.setBackgroundColor(ContextCompat.getColor(this,bgColor))
+
+        val toolbarBgColor = intent.getIntExtra(Eraser.ERASER_EXTRA_TOOLBAR_BACKGROUND_COLOR,R.color.toolbar_background_color)
+        val drawable = GradientDrawable().apply {
+            cornerRadius = 100f
+            color = ColorStateList.valueOf(ContextCompat.getColor(this@EraseActivity,toolbarBgColor))
+        }
+        val tools = findViewById<LinearLayout>(R.id.linearLayout4)
+        tools.background = drawable
+
+        val seekBarColor = intent.getIntExtra(Eraser.ERASER_EXTRA_SEEKBAR_COLOR,R.color.button_color)
+        val seekBar = findViewById<SeekBar>(R.id.strokeBar)
+        seekBar.progressTintList = ColorStateList.valueOf(ContextCompat.getColor(this,seekBarColor))
+        seekBar.thumbTintList = ColorStateList.valueOf(ContextCompat.getColor(this,seekBarColor))
+
+        val buttonColor = intent.getIntExtra(Eraser.ERASER_EXTRA_BUTTON_COLOR,R.color.button_color)
+        val btnBg = GradientDrawable().apply {
+            cornerRadius = 100f
+            color = ColorStateList.valueOf(ContextCompat.getColor(this@EraseActivity,buttonColor))
+        }
+        val button = findViewById<Button>(R.id.done)
+        button.background = btnBg
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
@@ -83,8 +109,8 @@ class EraseActivity : AppCompatActivity() {
     }
 
     private val extraSource: Uri?
-        get() = if (intent.hasExtra(Eraser.CUTOUT_EXTRA_SOURCE)) intent.getParcelableExtra(
-            Eraser.CUTOUT_EXTRA_SOURCE
+        get() = if (intent.hasExtra(Eraser.ERASER_EXTRA_SOURCE)) intent.getParcelableExtra(
+            Eraser.ERASER_EXTRA_SOURCE
         ) else null
 
     private fun start() {
@@ -106,7 +132,7 @@ class EraseActivity : AppCompatActivity() {
     }
 
     private fun startSaveDrawingTask() {
-        val shouldReturnPath = intent?.getBooleanExtra(Eraser.CUTOUT_EXTRA_RESULT_PATH_ENABLED,false) ?: false
+        val shouldReturnPath = intent?.getBooleanExtra(Eraser.ERASER_EXTRA_RESULT_PATH_ENABLED,false) ?: false
         drawView?.drawingCache?.let {
             lifecycleScope.saveDrawingTask(this,shouldReturnPath,it)
         }
@@ -197,8 +223,8 @@ class EraseActivity : AppCompatActivity() {
 
     fun exitWithError(e: Exception?) {
         val intent = Intent()
-        intent.putExtra(Eraser.CUTOUT_EXTRA_RESULT, e)
-        setResult(Eraser.CUTOUT_ACTIVITY_RESULT_ERROR_CODE, intent)
+        intent.putExtra(Eraser.ERASER_EXTRA_RESULT, e)
+        setResult(Eraser.ERASER_ACTIVITY_RESULT_ERROR_CODE, intent)
         finish()
     }
 

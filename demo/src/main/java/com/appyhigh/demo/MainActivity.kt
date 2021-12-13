@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == Eraser.CUTOUT_ACTIVITY_REQUEST_CODE){
+        if (requestCode == Eraser.ERASER_ACTIVITY_REQUEST_CODE){
             when(resultCode){
                 Activity.RESULT_OK -> {
                     val path = Eraser.getResultPath(data)
@@ -47,12 +47,11 @@ class MainActivity : AppCompatActivity() {
                     bitmap?.let { ivImage?.setImageBitmap(it) } ?: run {
                         Log.d("EraseResult","bitmap is null") }
                 }
-                Eraser.CUTOUT_ACTIVITY_RESULT_ERROR_CODE -> {
+                Eraser.ERASER_ACTIVITY_RESULT_ERROR_CODE -> {
                     Toast.makeText(this, "Error Occurred", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-
     }
 
     private fun getUriFromDrawable(drawableId: Int): Uri? {

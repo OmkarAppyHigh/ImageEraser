@@ -15,4 +15,7 @@
     <color name="intro_magic_background_color">#373737</color>
     <color name="intro_manual_background_color">#E64E4E</color>
     <color name="intro_zoom_background_color">#4E5DE6</color>
+    <color name="erase_background_color">#221B3C</color>
+    <color name="toolbar_background_color">#662D335A</color>
+    <color name="button_color">#F763B3</color>
 </resources>

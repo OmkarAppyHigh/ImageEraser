@@ -57,10 +57,10 @@ object SaveDrawingTask {
                 if (result.first != null) {
                     if (shouldReturnPath){
                         val file = result.first
-                        resultIntent.putExtra(Eraser.CUTOUT_EXTRA_RESULT_PATH,file?.absolutePath)
+                        resultIntent.putExtra(Eraser.ERASER_EXTRA_RESULT_PATH,file?.absolutePath)
                     }else{
                         val uri = Uri.fromFile(result.first)
-                        resultIntent.putExtra(Eraser.CUTOUT_EXTRA_RESULT, uri)
+                        resultIntent.putExtra(Eraser.ERASER_EXTRA_RESULT, uri)
                     }
                     activityWeakReference.get()!!.setResult(Activity.RESULT_OK, resultIntent)
                     activityWeakReference.get()!!.finish()

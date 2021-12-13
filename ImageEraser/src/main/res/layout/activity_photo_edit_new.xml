@@ -4,7 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#221B3C">
+    android:id="@+id/linearLayout"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#221B3C">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -12,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/edit_back"
+        tools:background="@drawable/edit_back"
         android:gravity="center"
         android:paddingHorizontal="20dp"
         android:weightSum="5"
@@ -141,9 +143,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="25dp"
-            android:progressTint="#F763B3"
+            tools:progressTint="#F763B3"
             android:max="30"
-            android:thumbTint="#F763B3"
+            tools:thumbTint="#F763B3"
             android:progress="15" />
     </LinearLayout>
 
@@ -155,8 +157,9 @@
         android:textColor="#fff"
         android:textSize="16sp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/main_button"
+        tools:background="@drawable/main_button"
         android:text="Done"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
