@@ -6,20 +6,32 @@
     android:layout_height="match_parent"
     android:id="@+id/constraintLayout"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:background="#221B3C">
+    tools:background="#181C30">
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/btnBack"
+        android:padding="6dp"
+        android:src="@drawable/ic_back"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="#F3F3F3" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="10dp"
         android:weightSum="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
         tools:background="@drawable/edit_back">
 
         <LinearLayout
@@ -29,11 +41,12 @@
             android:gravity="center"
             android:paddingVertical="10dp">
 
-            <Button
+            <ImageView
                 android:id="@+id/undo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/undo_selector" />
+                android:padding="5dp"
+                android:src="@drawable/undo_selector" />
         </LinearLayout>
 
         <LinearLayout
@@ -43,11 +56,12 @@
             android:gravity="center"
             android:paddingVertical="10dp">
 
-            <Button
+            <ImageView
                 android:id="@+id/redo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/redo_selector" />
+                android:padding="5dp"
+                android:src="@drawable/redo_selector" />
         </LinearLayout>
 
         <View
@@ -60,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:visibility="gone"
             android:paddingVertical="10dp">
 
             <Button
@@ -70,32 +85,36 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingVertical="10dp">
+            <ImageView
+                android:id="@+id/manual_clear_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                tools:background="@drawable/ic_circle_bg"
+                tools:tint="#292440"
+                android:background="@drawable/background_selector"
+                android:src="@drawable/pencil_selector" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/auto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:paddingVertical="10dp">
-
-            <Button
+            <ImageView
                 android:id="@+id/auto_clear_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/magic_selector" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingVertical="10dp">
-
-            <Button
-                android:id="@+id/manual_clear_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/pencil_selector" />
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:background="@drawable/background_selector"
+                android:src="@drawable/magic_selector" />
         </LinearLayout>
     </LinearLayout>
 
@@ -140,6 +159,7 @@
         android:id="@+id/manual_clear_settings_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/done">
 
         <SeekBar
@@ -149,23 +169,19 @@
             android:layout_marginHorizontal="25dp"
             android:max="30"
             android:progress="15"
-            tools:progressTint="#F763B3"
-            tools:thumbTint="#F763B3" />
+            tools:progressTint="#945FFF"
+            tools:thumbTint="#945FFF" />
     </LinearLayout>
 
-    <Button
+    <ImageView
         android:id="@+id/done"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginBottom="30dp"
-        android:text="Done"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:textSize="16sp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:background="@drawable/main_button" />
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="30dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

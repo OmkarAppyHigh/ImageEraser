@@ -8,6 +8,7 @@ import android.util.Pair
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import java.lang.ref.WeakReference
 import java.util.*
 
@@ -21,8 +22,8 @@ internal class DrawView(c: Context?, attrs: AttributeSet?) :
     private val undoneCuts = Stack<Pair<Pair<Path, Paint>?, Bitmap?>>()
     private var pathX = 0f
     private var pathY = 0f
-    private var undoButton: Button? = null
-    private var redoButton: Button? = null
+    private var undoButton: ImageView? = null
+    private var redoButton: ImageView? = null
     private var loadingModal: View? = null
     private var currentAction: DrawViewAction? = null
 
@@ -30,7 +31,7 @@ internal class DrawView(c: Context?, attrs: AttributeSet?) :
         AUTO_CLEAR, MANUAL_CLEAR, ZOOM
     }
 
-    fun setButtons(undoButton: Button?, redoButton: Button?) {
+    fun setButtons(undoButton: ImageView?, redoButton: ImageView?) {
         this.undoButton = undoButton
         this.redoButton = redoButton
     }

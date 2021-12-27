@@ -3,9 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/background_selector.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/edit_back.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/ic_circle_bg.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/ic_circle_bg_transparent.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/ic_done.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/magic_active.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/magic_inactive.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/magic_selector.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/magnifier_selector.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/main_button.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/pencil_active.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/pencil_inactive.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/pencil_selector.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/redo_active.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/redo_inactive.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/redo_selector.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/undo_active.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/undo_inactive.xml" value="0.3692708333333333" />
+        <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/drawable/undo_selector.xml" value="0.3692708333333333" />
         <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/layout/activity.xml" value="0.353125" />
         <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/ImageEraser/src/main/res/layout/activity_photo_edit_new.xml" value="0.353125" />
         <entry key="..\:/Users/Omkar/AndroidStudioProjects/ImageErase/app/src/main/res/layout/activity_main.xml" value="0.33" />

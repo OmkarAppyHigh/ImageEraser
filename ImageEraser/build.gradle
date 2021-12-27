@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdk 23
         targetSdk 30
-        versionCode 4
-        versionName "1.0.3"
+        versionCode 5
+        versionName "1.0.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -60,7 +60,7 @@ afterEvaluate {
 
                 groupId = 'com.github.omkarappyhigh'
                 artifactId = 'image-eraser'
-                version = '1.0.3'
+                version = '1.0.4'
             }
         }
     }

@@ -67,8 +67,11 @@ class EraseActivity : AppCompatActivity() {
         manualClearSettingsLayout = findViewById(R.id.manual_clear_settings_layout)
         setUndoRedo()
         initializeActionButtons()
-        val doneButton: Button = findViewById(R.id.done)
+        val doneButton: ImageView = findViewById(R.id.done)
         doneButton.setOnClickListener { v: View? -> startSaveDrawingTask() }
+
+        val btnBack: ImageView = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener { finish() }
 
         start()
     }
@@ -92,12 +95,8 @@ class EraseActivity : AppCompatActivity() {
         seekBar.thumbTintList = ColorStateList.valueOf(ContextCompat.getColor(this,seekBarColor))
 
         val buttonColor = intent.getIntExtra(Eraser.ERASER_EXTRA_BUTTON_COLOR,R.color.button_color)
-        val btnBg = GradientDrawable().apply {
-            cornerRadius = 100f
-            color = ColorStateList.valueOf(ContextCompat.getColor(this@EraseActivity,buttonColor))
-        }
-        val button = findViewById<Button>(R.id.done)
-        button.background = btnBg
+        val button = findViewById<ImageView>(R.id.done)
+        button.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this@EraseActivity,buttonColor))
 
         if (intent.hasExtra(Eraser.ERASER_EXTRA_IMAGE_RATIO)){
             val gestureView = findViewById<GestureFrameLayout>(R.id.gestureView)
@@ -180,8 +179,8 @@ class EraseActivity : AppCompatActivity() {
     }
 
     private fun initializeActionButtons() {
-        val autoClearButton: Button = findViewById(R.id.auto_clear_button)
-        val manualClearButton: Button = findViewById(R.id.manual_clear_button)
+        val autoClearButton: ImageView = findViewById(R.id.auto_clear_button)
+        val manualClearButton: ImageView = findViewById(R.id.manual_clear_button)
         val zoomButton: Button = findViewById(R.id.zoom_button)
         autoClearButton.isActivated = false
         autoClearButton.setOnClickListener { buttonView: View? ->
@@ -221,10 +220,10 @@ class EraseActivity : AppCompatActivity() {
     }
 
     private fun setUndoRedo() {
-        val undoButton: Button = findViewById(R.id.undo)
+        val undoButton: ImageView = findViewById(R.id.undo)
         undoButton.isEnabled = false
         undoButton.setOnClickListener { v: View? -> undo() }
-        val redoButton: Button = findViewById(R.id.redo)
+        val redoButton: ImageView = findViewById(R.id.redo)
         redoButton.isEnabled = false
         redoButton.setOnClickListener { v: View? -> redo() }
         drawView?.setButtons(undoButton, redoButton)
